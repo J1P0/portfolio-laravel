@@ -22,6 +22,8 @@ Route::get('/about', [AboutController::class, 'index'])->name("frontend.about.in
 Route::get('/contact', [ContactController::class, 'index'])->name("frontend.contact.index");
 Route::post('/contact/process', [ContactController::class, 'process'])->name("frontend.contact.process");
 
+Route::get('/abouts', [AboutController::class, 'about'])->name("backend.about.about");
+Route::post('/about/update', [AboutController::class, 'process'])->name("frontend.about.update");
 
 Route::get('/backend/manage/home', [BackendHomeController::class, 'index'])->name("backend.manage.home");
 
