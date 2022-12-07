@@ -9,6 +9,7 @@ use App\Http\Controllers\Frontend\PortfolioController;
 
 use App\Http\Controllers\Backend\HomeController as BackendHomeController;
 use App\Http\Controllers\Backend\AboutController as BackendAboutController;
+use App\Http\Controllers\Backend\CVController as BackendCVController;
 use App\Http\Controllers\Backend\ContactController as BackendContactController;
 use App\Http\Controllers\Backend\PortfolioController as BackendPortfolioController;
 use App\Http\Controllers\Backend\FooterController as BackendFooterController;
@@ -19,6 +20,8 @@ use App\Http\Controllers\Backend\FooterController as BackendFooterController;
 Route::get('/', [HomeController::class, 'index'])->name("frontend.home.index");
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name("frontend.porfolio.index");
 Route::get('/about', [AboutController::class, 'index'])->name("frontend.about.index");
+Route::get('/download/cv', [AboutController::class, 'download_cv'])->name("frontend.about.download.my.cv");
+
 Route::get('/contact', [ContactController::class, 'index'])->name("frontend.contact.index");
 Route::post('/contact/process', [ContactController::class, 'process'])->name("frontend.contact.process");
 
@@ -26,6 +29,9 @@ Route::get('/abouts', [AboutController::class, 'about'])->name("backend.about.ab
 Route::post('/about/update', [AboutController::class, 'process'])->name("frontend.about.update");
 
 Route::get('/backend/manage/home', [BackendHomeController::class, 'index'])->name("backend.manage.home");
+
+Route::get('/backend/manage/cv', [BackendCVController::class, 'index'])->name("backend.manage.cv");
+Route::get('/backend/manage/cv/process', [BackendCVController::class, 'process'])->name("backend.manage.cv.process");
 
 Route::get('/backend/manage/portfolio', [BackendPortfolioController::class, 'index'])->name("backend.manage.portfolio");
 Route::get('/backend/create/portfolio', [BackendHomeController::class, 'create'])->name("backend.create.portfolio");
